@@ -1,0 +1,548 @@
+Problem Statement - 1
+
+You are given some information for a few students - their names and their weekly score. You have to create sample data on your own and write code to find out
+- average score of this batch for the current week
+- top scorer candidate (any one)
+- lowest scorer candidate (any one)
+
+Naruto - 35
+Sasuke - 40
+Gaara - 50
+Sakura - 40
+Shikamaru - 65
+
+
+const studentsDetail = [
+    {name:"Naruto",
+    score: 35
+    },
+    {name:"Sasuke",
+    score:40
+    },
+    {name:"Gaara",
+    score:50
+    },
+    {name:"Sakura",
+    score:40
+    },
+    {name:"Shikamaru",
+    score:65
+    },
+
+]
+
+let totalScore = 0
+for(let i=0; i<studentsDetail.length;i++){
+    totalScore = totalScore + studentsDetail.score
+}
+const averageScore = tatalScore/studentsDetail.length
+
+console.log(averageScore)
+
+
+
+Try to figure out a way to initialise maxScore as well as topper (edited) as well.
+    let maxScore =0
+    let topper={}
+    for(let i=0; i<=studentsDetail.length-1; i++){
+     if(studentsDetail[i].score > maxScore){
+         topper=studentsDetail[i]
+         maxScore=studentsDetail[i].score
+     }
+    }
+        console.log(topper.name)
+         console.log(topper.score)
+
+
+Problem Statement - 2
+
+/*
+You are given a customer details and you have been told to give a discount percentage to the customer based on the following details
+- If a customer has not logged in for the last 30 days and also not purchased something, assign a discount offer of 20%
+- if a customer has logged-in in the last 30 days but hasn’t purchased anything in these 30 days, assign a discount offer of 18%
+- If a user’s total order is greater than 20, assign them a discount offer of 25%
+- If membership is more than a year old, assign them a discount offer of 5%
+
+Important Note : To maximise revenue the management has intructed that if customer is eligible for multiple offer we will provide them the minimum of all the eligible discount offers. 
+What this means is For example there is a customer X who has logged in as well purchased an item in the last 30 days. Also X has a total number of order greater than 20. As per the algorithm above we want minimum of two, so the discount offer for customer X is 20 and not 25
+*/
+
+Customer details
+ 
+{
+  “daysSinceLastPurchase”: 30,
+  “daysSinceLastLogin”: 15,
+  “totalOrders”: 5,
+  “membershipDuration”: 1.5
+}
+
+//3.If a user’s total order is greater than 20, assign them a discount offer of 25%
+if(customerDetails.totalOrders>20){
+    discountOffer=25
+}
+
+
+//1. If a customer has not logged in for the last 30 days and also not purchased something, assign a discount offer of 20%
+if(customerDetails.daysSinceLastLogin>30 && customerDetails.daysSinceLastPurchase>30){
+    discountOffer=20
+}
+
+//2. if a customer has logged-in in the last 30 days but hasn’t purchased anything in these 30 days, assign a discount offer of 18%
+ if(customerDetails.daysSinceLastLogin<=30 && customerDetails.daysSinceLastPurchase>30){
+    discountOffer=18
+}
+
+
+//4. If membership is more than a year old, assign them a discount offer of 5%
+if(customerDetails.membershipDuration>1){
+    discountOffer=5
+}
+
+Also Try this-
+Find bugs in this
+The if elseif approach solution
+
+
+
+//Problem Statement - 3
+
+There is one  medical treatment center , here they cure 4 diseases , 
+let’s say (A,B,C,D) ,
+
+and we have 4 age groups patients , 
+	firstAgeGroup -0-5 , 
+	SecondAgeGroup  -5-10 , 
+	ThirdAgeGroup  -10-18 , 
+	FourthAgeGroup -18+
+
+Pricing of all the dieases are diffferent for all age group  .
+
+patient may come for 1) checkup or 2) treatement
+
+ //for 1st and 3rd group B&C diease treatement is not available ,
+ //for 4th group D treatement is not available .
+
+ //If patient belongs to ThirdAgeGroup , they will give them 25% discount for treatement of B-disease, and for C-12% discount .
+
+ //For firstAgeGroup patients  && if age of patient is 50+  Treatment will  be free .
+
+ //Note – Lat say patient X is visited for checkup  of diease A and he/she was previously treated for same diseases from our treatement center will give free checkup ,other wise checkup price will be 30 % treatment price .
+
+SHOW THE OUTPUT MESSAGE ACCORDINGLY .
+
+
+const patientInfo  = {
+	name : ‘’,
+	age : ‘’ ,
+	visitedFor : ‘’ //checkup or treatment
+	diseaseName : ‘’,
+	isVisitedPreviously : ‘’,//yes or no
+	previouslyVisitedFor      //treatement or checkup && diseaseName
+}
+** Add key if needed .
+
+visitedFor =  treatment /checkup
+previouslyVisitedFor = [dieaseName , treatement/checkup]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//const places = ['delhi', 'gurgaon', 'jaipur', 'pune']
+const morePlaces = ['kochi', 'hyderabad', 'Shimla', 'Srinagar']
+
+// IMPORTANT: solve all problems using using destructuring and rest syntax
+
+
+		
+// ============================================================================= //
+
+
+
+//1.
+// remove first element from places array and print the remaining array 
+//result = ['gurgaon', 'jaipur', 'pune']
+
+/*const places = ['delhi', 'gurgaon', 'jaipur', 'pune']
+
+const a =  places[1]
+const b =  places[2]
+const c =  places[3]
+
+console.log(a,b,c)*/
+
+
+
+/*const [firstElem, ...restOfThePlace] = places;
+console.log(restOfThePlace);
+
+*/
+
+// ============================================================================= //
+//2.
+// insert that element at the start of the morePlaces array and print the new array
+// result =  ['delhi', 'kochi', 'hyderabad', 'Shimla', 'Srinagar']
+
+const updateNewPlacesArray=[firstElem, ...morePlaces];
+console.log(updateNewPlacesArray);
+
+// ============================================================================= //
+// 3.
+// take out last three element from the morePlacesArray and take out first three elements from the places array 
+// and print the combined array
+//result =  ['hyderabad', 'Shimla', 'Srinagar', 'delhi', 'gurgaon', 'jaipur',]
+
+/*const places = ['delhi', 'gurgaon', 'jaipur', 'pune']
+const [a,b,c,d,]=places
+console.log(a,b,c)
+
+const morePlaces = ['kochi', 'hyderabad', 'Shimla', 'Srinagar']
+const[e,f,g,h]=morePlaces
+console.log(f,g,h)
+
+
+
+
+
+
+
+
+
+/*const myData = {
+    name: "Rahul",
+    age: 20,
+    gender: "male",
+    address: {
+      pinCode: 123455,
+      city:"delhi"
+    },
+    likes:["music", "movies"]
+  }*/
+  
+// 4.
+// destructure and store pincode into a variable named myPincode
+
+
+/*const myData = {
+    name: "Rahul",
+    age: 20,
+    gender: "male",
+    address: {
+      pinCode: 123455,
+      city:"delhi"
+    },
+    likes:["music", "movies"]
+
+const pincode= myData.pinCode
+console.log(pinCode)
+
+  
+// 5.
+// destructure and store second like into a vaiable named myLike
+
+const myLike= myData.likes[1]
+ console.log(myLikeike)
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const practiceData = [[14,21,23,64], [33,46,51,65]]
+/**
+ * requirement one
+ * increment each number by one and output the resultant array using a higher order method and for loop
+ * HINT: use nesting
+ * solution =  [[15,22,24,65], [34,47,52,66]]
+ * 
+ * 
+ * requirement two
+ * from the above array, create an array of array of even numbers using a higher order method and for loop
+ * solution = [[14,64], [46]]
+ */
+
+const practiceData = [[14,21,23,64], [33,46,51,65]]
+
+addOne =practiceData.map(x=>x.map(x=>x+1));
+console.log(addOne)
+
+for(let i=0;i<=practiceData.length;i++){
+ )
+}
+ 
+
+even =practiceData.map(x=>x.filter(x=>x%2==0))
+console.log(even)
+
+
+
+
+// ======================================================== //
+
+    const array = [23 , 45,467, 789, 34, 989, 56]
+
+    // problem => return an array such that numbers at odd idex are multiplied by 2
+    // and numbers at even index are multiplied by 10
+
+
+const array=[23,45,467,789,34,989,56]
+const arr =array.map((item,index)=>item*(index%2===0?2:10))
+    console.log(arr)                          
+
+
+
+ 
+// ======================================================== //
+
+
+ /**
+  *  Flattening
+ Use the reduce method 
+ to â€œflattenâ€ an array of arrays into a single array that has all the elements of the original arrays.
+ 
+ const arrays = [[1, 2, 3], [4, 5], [6]];
+ // result =  [1, 2, 3, 4, 5, 6]
+  * 
+  * 
+  */
+const array1 =[[1,2,3],[4,5],[6]]
+flattening =array1.reduce((acc,ins)=>acc.concat(ins),[]);
+console.log(flattening);
+
+
+
+// ======================================================== //
+
+
+ /**
+  * const countries = ['Finland', 'Denmark', 'Sweden', 'Norway', 'Iceland']
+  * return an array with all words converted into uppercase using higher order function
+  * const countries = ['FINLAND', 'DENMARK', 'SWEDEN', 'NORWAY', 'ICELAND']
+  * 
+  * 
+  * 
+  */
+
+const countries =['Finland','Denmark','Sweden','Norway','Iceland']
+const capital =countries.map((x)=>x.toUpperCase())
+console.log(capital)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const person = {
+    name: "Akash",
+    mobile: 999999999,
+    address: {
+        pincode: 1234,
+        city: "gurgaon",
+        state: "haryana",
+        emails: ["asd@gmail.com", "abc@yahoo.com", "rty@hotmail.com"],
+    },
+};
+
+
+let newPerson = person
+
+newPerson.name = "Rahul",
+newPerson.address.pincode = 4567,
+newPerson.address.emails[0]=["asd@outlook.com"],
+console.log(newPerson)
+
+
+/**
+ * 
+ * 
+ * make a copy of the person object and in that copy 
+ * change its name to "Rahul",  
+ * pincode to 4567 
+ * and first email in the list to 'm'asd@outlook.co
+ * 
+ * make sure that original person is not affected by these operation
+ * 
+ *  your new person should look like this 
+ * const newPerson = {
+    name:"Rahul",
+    mobile:999999999,
+    address:{
+        pincode:4567,
+        city:"gurgaon",
+        state:"haryana",
+        emails:['asd@outlook.com', 'abc@yahoo.com', 'rty@hotmail.com']
+    }
+}
+
+
+  
+ *  CAUTION: DO NOT USE JSON.parse(JSON.stringify())
+    Hint: use destructuring at every level, i.e. copy each level shallowly
+ */
+
+
+
+
+/**
+ * explain the difference between primitive and non primitive data types when we use the following operator
+ * 1. assignment operator
+ * 2. equality operator
+ 
+  The difference between primitive and non-primitive deta type is
+  primitive are muatable,non-primitive are unmuatable.
+  muatable values are those are modifed ater creation.
+ 
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ const facebookProfiles = [
+    {
+        firstName: "Akash",
+        lastName: "Agarwal",
+        location: "rampur",
+    },
+    {
+        firstName: "Pritesh",
+        lastName: "Kumar",
+        location: "gurgaon",
+    },
+    {
+        firstName: "Sabiha",
+        lastName: "Khan",
+        location: "gurgaon",
+    },
+    {
+        firstName: "Suyash",
+        lastName: "Kashyap",
+        location: "alwar",
+    },
+    {
+        firstName: "Jay",
+        location: "gurgaon",
+    },
+];
+
+// return the full names of the facebook users who belong to guragon
+// HINT: use higher order functions and chain them
+
+    function filterNonGuragonPeople(person){
+        if(person.location==="gurgoan"){
+            return true;
+        }else{
+            return false;
+        }
+    }
+  const guragonPeople =facebookProfiles.filter(filterNonGuragonPeople);
+function getFirstName(person){
+    return person.firstName;
+}
+const gurgaonPeopleName=gurgoanPeople.map(getFirstName);
+console.log(gurgaonPeopleName);
+
+
+
+//method 2
+
+   const gurgaonPeopleNameAfterchain =facebookProfiles.filter(filterNonGuragonPeople).map(getFirstName);
+   console.log(gurgoanPeopleNmeAfterChain);
+// ======================================================================== //
+
+function filterOddNumbers(num) {
+
+    if (num % 2! == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+const evenNumbers = [1, 2, 3, 4, 5].concat(6)filter(filterOddNumbers);
+
+/**
+ * Q1. without actually running this code, you need to answer whether this code will run or not along with the reason
+=> Push is not higher order function.
+    as higher order function has input or output is function.
+    In push we pass input as number ,hence input is not function 
+    alos its output is not function.
+    Hence we doesnt use push with filter.
+ 
+Q2. now run the above code and see the result/error. 
+Analyze the difference bw your answer before and after running the code 
+
+It shoes same answer as i write.
+ 
+
+Q2. correct the code so that method chain starts working
+ * by using concat instead of push
+ */
