@@ -1,0 +1,70 @@
+//1. Print all even numbers in first 50 natural numbers
+//2. print all odd numbers in natural numbers from 20 to 50
+//3. print all numbers that are divisible by 5 
+ //        [12, 45, 67, 89, 90, 34, 35, 55]//
+//4. Print all numbers of this array
+ //        [[1,2], [3,4], [5,6], [7,8]]
+//5.Print all prime numbers occurring in 1st 50 natural numbers
+
+/*for(let i=0;i<=50;i++){
+  if(i%2===0){
+       console.log(i);
+ }
+ }
+ */
+ 
+
+/*for(i=20;i<=50;i++){
+    if(i%2!=0){
+        console.log(i)
+    }
+}
+*/
+
+
+
+/*let arr=[12, 45, 67, 89, 90, 34, 35, 55]
+for(let i=0;i<arr.length;i++){
+     if(arr[i]%5==0){
+       console.log(arr[i])
+  }
+}
+*/
+
+/*let arr=[[1,2],[3,4],[5,6],[7,8]]
+for(i=0;i<arr.length;i++){
+  if(let j=0; j<2; j++) {
+   console.log(arr[i],[j]);
+   }
+}
+*/
+
+
+for(let i=1;i<=50;i++){
+    let check=0
+    for(ietj=2;j<i;j++){
+        if(i%j==0){
+            check=1
+            
+        }
+        
+    }
+}    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
