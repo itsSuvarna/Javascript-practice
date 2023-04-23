@@ -56,6 +56,34 @@ for(let i=1;i<=50;i++){
 
 
 
+// find second largest element from array
+let arr = [1,2,3,2,3,4,5,8,9]
+function secondLargest(arr){
+    let arr1 =[...new Set(arr)].sort((a,b)=>a-b);
+    return arr1[arr1.length-2]
+    }
+
+console.log(secondLargest(arr))
+
+
+
+//find freq of array using map
+let arr = [2,5,5,7,8,7,8,2,1,0]
+function findFreq(arr){
+  const mp=new Map();
+  for(let num of arr){
+     mp.set(num,(mp.get(num)||0)+1);
+     }   
+     return mp
+}
+ console.log(findFreq(arr))
+
+
+
+
+
+
+
 
 
 
