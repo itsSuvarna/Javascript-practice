@@ -80,6 +80,24 @@ function findFreq(arr){
 
 
 
+//four ways to remove duplicate 
+
+
+method 1  : filter
+function removeDuplicate(array){
+  return  array.filter((ele,index)=>array.indexOf(ele)===index);
+}
+
+let arr=[1,2,4,5,6,2,4,5]
+console.log(removeDuplicate(arr))
+
+method 2  : map
+function removeDuplicate(array){
+    let a=[]
+  arr.map(x=> a.includes(x) ?  "":a.push(x) )
+  return a
+}
+
 
 
 
